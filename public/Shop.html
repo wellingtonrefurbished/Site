@@ -1,0 +1,98 @@
+<!doctype html>
+<!--
+  Simple Shop Page
+  - This file is intentionally simple and heavily commented to explain structure.
+  - Styling re-uses `main.css` from the site. A few tiny page-specific rules are included below.
+  - Replace placeholder products with real data or connect to a backend as needed.
+-->
+  
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Shop — Wellington Refurbished</title>
+    <link rel="stylesheet" href="main.css">
+    <!-- Theme manager script (handles year and theme toggle) -->
+    <script src="theme.js" defer></script>
+    <style>
+      /* Page-local simple layout for product grid */
+      .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:18px}
+      .product{background:transparent;border-radius:8px;padding:12px;border:1px solid rgba(255,255,255,0.03)}
+      .product .thumb{height:130px;border-radius:6px;background:linear-gradient(135deg,#061828,#0a2540);display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700}
+      .product h4{margin:10px 0 6px;font-size:1rem}
+      .price{font-weight:800;color:var(--accent);}
+      .specs{color:var(--muted);font-size:0.9rem;margin-bottom:8px}
+      .small-note{font-size:0.85rem;color:var(--muted)}
+    </style>
+  </head>
+  <body>
+    <!-- Header: keep small nav to return to home -->
+    <header class="site-header">
+      <div class="container header-inner">
+          <div class="brand">
+            <h1>Wellington Refurbished</h1>
+            <p class="tag">Quality refurbished laptops and PCs</p>
+          </div>
+
+          <!-- Theme switch control (matches styles in main.css) -->
+          <div class="theme-switch">
+            <input id="theme-switch-checkbox" class="theme-switch-input" type="checkbox" aria-label="Toggle dark mode">
+            <label for="theme-switch-checkbox" class="theme-switch-label" title="Toggle theme">
+              <span class="theme-switch-track">
+                <span class="icon-sun">☀️</span>
+                <span class="theme-switch-knob" aria-hidden="true"></span>
+                <span class="icon-moon">🌙</span>
+              </span>
+            </label>
+          </div>
+
+          <nav class="main-nav" aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="Shop.html">Shop</a>
+            <a href="#contact">Contact</a>
+          </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- Page title and short note -->
+      <section class="card full-bleed">
+        <h2>Shop</h2>
+        <p class="small-note">Explore our selection to find great deals on refurbished devices — happy shopping!</p>
+      </section>
+
+      <!-- Products grid: replace items below with real product markup/data -->
+      <section class="products-grid full-bleed" aria-label="Products">
+        <!-- Product 1: X10DRI Motherboard -->
+        <article class="product card">
+          <div class="thumb"><img src="mobo.jpeg" alt="X10DRI motherboard" style="width:100%;height:100%;object-fit:cover;border-radius:6px"></div>
+          <h4>X10DRI motherboard</h4>
+          <div class="specs">X10DRI motherboard</div>
+          <div class="price">$350</div>
+        </article>
+
+        <!-- Product 2: 3TB HDD -->
+        <article class="product card">
+          <div class="thumb"><img src="hdd.jpeg" alt="3TB HDD" style="width:100%;height:100%;object-fit:cover;border-radius:6px"></div>
+          <h4>3TB HDD</h4>
+          <div class="specs">WD Red NAS</div>
+          <div class="price">$50</div>
+        </article>
+      </section>
+
+      <!-- Short contact CTA -->
+      <section class="card full-bleed" style="margin-top:20px">
+        <h3>Questions?</h3>
+        <p class="small-note">Email us at <a href="mailto:wellingtonrefurbished@gmail.com">wellingtonrefurbished@gmail.com</a> — or use the contact form on the homepage.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner center">
+        <p>© <span id="year"></span> Wellington Refurbished</p>
+      </div>
+    </footer>
+  </body>
+</html>
+    </body>
+</html>
