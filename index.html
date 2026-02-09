@@ -1,99 +1,31 @@
-<!doctype html>
-<!--
-    Simple index.html
-    - This file is intentionally tiny and annotated with notes.
-    - Keep structure minimal: head, header, main, footer.
-    - Link to `main.css` for styling (kept simple as well).
-    Notes are written for a developer reading the file.
--->
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <!-- Page title shown in browser tab -->
-        <title>Wellington Refurbished</title>
-        <!-- Simple stylesheet link -->
-        <link rel="stylesheet" href="main.css">
-    </head>
-    <body>
-        <!--
-            Header: site brand + simple navigation.
-            Keep links relative so pages work when deployed as static files.
-        -->
-        <header class="site-header">
-            <div class="container header-inner">
-                <div class="brand">
-                    <!-- Brand name visible on the page -->
-                    <h1>Wellington Refurbished</h1>
-                    <p class="tag">Quality refurbished laptops and PCs</p>
-                </div>
-                <div class="theme-switch" aria-hidden="false">
-                    <input id="theme-switch-checkbox" class="theme-switch-input" type="checkbox" aria-label="Toggle dark mode">
-                    <label for="theme-switch-checkbox" class="theme-switch-label" title="Toggle theme">
-                        <span class="theme-switch-track">
-                            <span class="icon-sun">☀️</span>
-                            <span class="theme-switch-knob" aria-hidden="true"></span>
-                            <span class="icon-moon">🌙</span>
-                        </span>
-                    </label>
-                </div>
-                <!-- Minimal nav: add/remove links as needed -->
-                <nav class="main-nav" aria-label="Main navigation">
-                    <a href="index.html">Home</a>
-                    <a href="Shop.html">Shop</a>
-                    <a href="#contact">Contact</a>
-                </nav>
-            </div>
-        </header>
-
-        <!-- Main content wrapper -->
-        <main class="container">
-            <!-- Hero: short pitch and CTA -->
-            <section class="hero">
-                <h2 class="title">Refurbished laptops &amp; PCs</h2>
-                <p class="lead">Great value and modern performance.</p>
-                <p><a class="cta" href="shop.html">Shop now</a></p>
-            </section>
-
-            <!-- About: short description only (keep it factual and brief) -->
-            <section id="about" class="card about">
-                <h3>About</h3>
-                <p>Wellington Refurbished refurbishes surplus school computers to extend their usable life and reduce electronic waste in Wellington. Devices that are no longer required by schools are carefully repaired, refurbished to a reliable standard, ensuring functional equipment is kept working rather than sent to landfill to pollute the earth. By reusing over disposing, we help lower the environmental impact associated with manufacturing new devices and support a more sustainable approach to managing school technology assets within the Wellington region.</p>
-            </section>
-
-            <!-- Contact: simple form. This uses formsubmit.co (third-party) — replace action if you host your own endpoint. -->
-            <section id="contact" class="card contact">
-                <h3>Contact</h3>
-                <form class="contact-form" action="https://formsubmit.co/663e69e7cf2f904645baeaeaadfc0251" method="post">
-                    <!-- Inputs: keep labels for accessibility -->
-                    <label for="name">Full name</label>
-                    <input id="name" name="name" type="text" required>
-
-                    <label for="email">Email</label>
-                    <input id="email" name="email" type="email" required>
-
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="6" required></textarea>
-
-                    <!-- Prevent spam using provider's recommended hidden field -->
-                    <input type="hidden" name="_captcha" value="true">
-
-                    <div class="form-row">
-                        <button class="btn primary" type="submit">Send Message</button>
-                    </div>
-                </form>
-            </section>
-        </main>
-
-        <!-- Footer: simple copyright and year injection -->
-        <footer class="site-footer">
-            <div class="container footer-inner">
-                <p>© <span id="year"></span> Wellington Refurbished — Refurbished laptops with a purpose.</p>
-            </div>
-        </footer>
-
-        <!-- Load theme management script (also sets year) -->
-        <script src="theme.js" defer></script>
-    </body>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellington Refurbished</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="Shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Welcome to Wellington Refurbished</h1>
+            <a href="Shop.html">Shop Now</a>
+        </section>
+        
+        <!-- Other content -->
+        
+    </main>
+    <footer>
+        <p>&copy; 2026 Wellington Refurbished. All rights reserved.</p>
+    </footer>
+</body>
 </html>
