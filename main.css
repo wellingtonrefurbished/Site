@@ -1,0 +1,119 @@
+:root{
+  /* Light (default): white & blue */
+  --bg: #ffffff;
+  --bg-gradient: linear-gradient(180deg,#ffffff 0%, #f6fbff 100%);
+  --card-bg: #ffffff;
+  --card-border: #e6f2ff;
+  --muted: #6b7280;
+  --accent: #0b63d3; /* blue */
+  --accent-2: #064aa1; /* darker blue */
+  --text: #05263a;
+  --hero-bg: linear-gradient(180deg, rgba(11,99,211,0.06), rgba(6,74,161,0.02));
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+}
+
+.container{max-width:980px;margin:0 auto;padding:28px}
+
+.site-header{padding:14px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand h1{margin:0;font-weight:700;font-size:1.25rem; font-family: 'Press Start 2P', monospace; letter-spacing:1px; color:var(--accent)}
+.brand .tag{margin:4px 0 0;color:var(--muted);font-size:0.85rem}
+
+.main-nav a{color:var(--muted);text-decoration:none;margin-left:12px;padding:8px 12px;border-radius:6px;transition:all .14s ease}
+.main-nav a:hover{color:var(--text)}
+
+.hero{background:var(--hero-bg);border:1px solid var(--card-border);padding:34px;border-radius:8px;display:flex;align-items:center;gap:20px;margin-bottom:18px}
+.hero .title{font-family:'Press Start 2P',monospace;font-size:1.2rem;color:var(--accent);margin:0}
+.hero .lead{color:var(--muted);margin:6px 0 0;max-width:640px}
+.cta{display:inline-block;padding:10px 14px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#021; border-radius:8px; text-decoration:none; font-weight:700}
+
+.card{background:var(--card-bg);border:1px solid var(--card-border);padding:18px;border-radius:8px;margin-top:18px}
+.about h2,.contact h2{margin-top:0}
+.about p{color:var(--muted);line-height:1.6}
+
+.contact-form{display:grid;gap:10px;margin-top:10px}
+.contact-form label{font-size:0.9rem;color:var(--muted)}
+.contact-form input,.contact-form textarea{background:var(--card-bg);border:1px solid var(--card-border);padding:10px;border-radius:6px;color:var(--text);outline:none}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--accent);box-shadow:0 6px 20px rgba(11,99,211,0.06)}
+
+.form-row{display:flex;justify-content:flex-end;margin-top:6px}
+.btn{padding:10px 16px;border-radius:8px;border:0;cursor:pointer;font-weight:700}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#021}
+
+.site-footer{margin-top:36px;padding:18px 0;color:var(--muted);text-align:center}
+
+@media (max-width:700px){
+  .header-inner{flex-direction:column;align-items:flex-start}
+  .main-nav{display:flex;gap:8px;margin-top:8px}
+  .container{padding:18px}
+  .hero{flex-direction:column;align-items:flex-start}
+}
+
+/* small retro touch: subtle scanline */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;background-image:repeating-linear-gradient(transparent, rgba(0,0,0,0.02) 1px);opacity:0.06}
+
+/* Dark theme overrides (black + blue) */
+[data-theme="dark"]{
+  --bg: #081224;
+  --bg-gradient: radial-gradient(circle at 10% 10%, #061026 0%, #04060a 40%), linear-gradient(180deg,#071527 0%, #021019 100%);
+  --card-bg: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  --card-border: rgba(255,255,255,0.03);
+  --muted: #9aa8bf;
+  --accent: #00ffd5;
+  --accent-2: #ff66c4;
+  --text: #e6eef8;
+}
+
+/* Theme toggle */
+.theme-toggle{display:none}
+
+/* Large, obvious light-switch style toggle */
+.theme-switch{position:fixed;top:14px;right:14px;z-index:9999}
+.theme-switch-label{display:inline-flex;align-items:center;gap:8px;cursor:pointer;user-select:none}
+.theme-switch-track{width:72px;height:40px;background:var(--card-border);border-radius:999px;padding:4px;display:inline-flex;align-items:center;position:relative;box-shadow:0 6px 18px rgba(2,20,40,0.06);}
+.theme-switch-input{position:absolute;opacity:0;width:0;height:0}
+.theme-switch-knob{width:32px;height:32px;border-radius:50%;background:var(--knob-bg, #ffffff);box-shadow:0 2px 6px rgba(2,20,40,0.12);transform:translateX(0);transition:transform 220ms cubic-bezier(.2,.9,.3,1), background 180ms ease, border-color 180ms ease;border:2px solid rgba(0,0,0,0.06);display:flex;align-items:center;justify-content:center;font-size:14px}
+.theme-switch-track .icon-sun,.theme-switch-track .icon-moon{position:absolute;font-size:14px;opacity:1;z-index:3;pointer-events:none}
+.theme-switch-track .icon-sun{left:10px;color:var(--accent)}
+.theme-switch-track .icon-moon{right:10px;color:var(--muted)}
+/* when checkbox is checked, move knob to the right (targeting label as sibling) */
+.theme-switch-input:checked + .theme-switch-label .theme-switch-track .theme-switch-knob{transform:translateX(32px);background:var(--knob-active, var(--accent));border-color:rgba(0,0,0,0.06);z-index:2}
+[data-theme="dark"] .theme-switch-knob{background:var(--knob-bg-dark, #081224);border-color:rgba(255,255,255,0.06);}
+[data-theme="dark"] .theme-switch-track{background:rgba(255,255,255,0.02)}
+
+/* Ensure knob sits beneath icons so the sun/moon remain visible */
+.theme-switch-knob{z-index:1}
+[data-theme="dark"] .theme-switch-knob{background:var(--knob-bg-dark, #081224);border-color:rgba(255,255,255,0.06);}
+[data-theme="dark"] .theme-switch-track{background:rgba(255,255,255,0.02)}
+
+/* Make sure contrast in dark mode for footer */
+[data-theme="dark"] .site-footer{background:var(--blue-dark);color:#eaf4ff}
+
+/*
+  NOTES:
+  - This CSS is intentionally small and commented for clarity.
+  - Keep layout rules simple: container, header, hero, card, form, footer.
+  - Adjust variables at the top to change colors quickly.
+*/
+
+/* Base helpers */
+/* Make links obvious and keyboard-focusable */
+a { color: var(--accent); }
+a:focus { outline:2px solid rgba(0,255,213,0.12); }
+
+/* Utility: center text in small blocks */
+.center { text-align:center }
+
+/* Simple visual reset for form elements to match theme */
+input,textarea{font:inherit}
+
+
